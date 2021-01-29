@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/6ee2327e6e.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
-    <input type="text" id="get">
-    <input type="button" id="btn" value="Search">
+    <div class="container">
+        <input type="text" id="get">
+        <button id="btn"><i class="fas fa-search"></i> </button>
+    </div>
+
     <div id="output"></div>
 
-    <div>
-        <ul>
-            <a href="" id="last">Last</a>
+    <div id="pageD">
+        <ul id="pageList">
+            <a href="#output" class="pageN">1</a>
+            <a href="#output" class="pageN">2</a>
+            <a href="#output" class="pageN">3</a>
+            <a href="#output" class="pageN">4</a>
+            <a href="#output" class="pageN">5</a>
         </ul>
     </div>
     
