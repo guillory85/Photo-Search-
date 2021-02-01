@@ -18,13 +18,13 @@ document.querySelector('#btn').addEventListener('click', async () => {
 
     let output = `<h2>Searh Results</h2>`;
         item.forEach(photo => {
-          let image = photo.urls.small;
-          let id = photo.id;
+          let image = photo.urls.thumb;
+          let description = photo.alt_description;
             
            output += `
            <div class = "imgStyle">
             <img src ="${image}"/>
-            <p>${id}</p>
+            <p>${description}</p>
            </div>
            `;
             document.querySelector('#output').innerHTML = output;
@@ -43,12 +43,12 @@ for (let i = 0; i < document.querySelectorAll('.pageN').length; i++) {
         let output = `<h2>Searh Results</h2>`;
         item.forEach(photo => {
           let image = photo.urls.thumb;
-          let id = photo.id;
+          let description = photo.alt_description;
             
            output += `
-           <div>
+           <div class = "imgStyle">
             <img src ="${image}"/>
-            <p>${id}</p>
+            <p>${description}</p>
            </div>
            `;
             document.querySelector('#output').innerHTML = output;

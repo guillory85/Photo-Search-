@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.container {
+    position: relative;
+    left: 25%;
+    width: 50%;
+    height: 100px;
+}
+
+.container #get {
+    position: absolute;
+    top: 30px;
+    left: 35%;
+    width: 30%;
+    height: 30px;
+    border-radius: 10%;
+    border: none;
+}
+
+.container #btn {
+    position: absolute;
+    top: 30px;
+    right: 28%;
+    width: 5%;
+    height: 30%;
+    background-color: rgba(124, 120, 120, 0.473);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container #btn:hover {
+    opacity: 0.8;
+    transform: scale(0.98);
+}
+
+#output {
+    display: grid;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    grid-template-columns: auto auto auto auto auto;
+    padding-top: 20px;
+}
+
+#output > h2 {
+    color: darkgray;
+    position: absolute;
+    top: 75px;
+    left: 45%;
+}
+
+#output .imgStyle {
+    background-color: rgba(131, 128, 128, 0.164);
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#output .imgStyle > img {
+    width: 100%;
+    height: 85%;
+    padding: 20px;
+}
+
+#output .imgStyle > p {
+    color: #fff;
+}
+
+@media (max-width: 500px) {
+    .container {
+        position: relative;
+        left: 0;
+        width: auto;
+        height: 100px;
+    }
+
+    #output {
+        display: grid;
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+        grid-template-columns: auto;
+        padding-top: 20px;
+    }
+
+    #output > h2 {
+        color: darkgray;
+        position: absolute;
+        top: 75px;
+        left: 30%;
+    }
+}
+
+#pageD {
+    display: none;
+    position: relative;
+    left: 40%;
+    padding: 20px;
+}
+
+.pageN {
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: darkgreen;
+}
