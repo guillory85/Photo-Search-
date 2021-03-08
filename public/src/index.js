@@ -6,7 +6,6 @@ async function searchPic(page) {
     const response = await fetch(url);
 
     const item = await response.json();
-    console.log(item);
 
     return item;
 }
@@ -17,19 +16,20 @@ document.querySelector('#btn').addEventListener('click', async () => {
         if (!item.results.length) {
             throw new Error("Could not find what you are looking for!");
         } else {
-            item = item.results; 
-    
-            let output = `<h2>Searh Results</h2>`;
+            item = item.results;
                 item.forEach(photo => {
                   let image = photo.urls.thumb;
                   let description = photo.alt_description;
+                  let divTag = document.createElement('div');
+                  divTag.setAttribute('class', 'imgStyle');  
+                  let imgTag = document.createElement('img');
+                  Object.assign(imgTag, {
+                      src: image,
+                      alt: description,
+                    });
+                    divTag.appendChild(imgTag);
                     
-                   output += `
-                   <div class = "imgStyle">
-                    <img src ="${image}" alt = "${description}"/>
-                   </div>
-                   `;
-                    document.querySelector('#output').innerHTML = output;
+                  document.querySelector('#output').appendChild(divTag);
                 });
         
                 let showPage = document.querySelector('#pageD');
@@ -38,11 +38,10 @@ document.querySelector('#btn').addEventListener('click', async () => {
 
     } catch (error) {
         let err = error.message;
-        let errorOutput = `<h2>Error</h2>`;
-        errorOutput += `<p>"${err}"</p>`;
-        
-        document.querySelectorAll('.error')[0].innerHTML = errorOutput;
-        console.log(err);
+        let textNode = document.createTextNode(err);
+        let par = document.createElement('p');
+        par.appendChild(textNode);
+        document.querySelector('#output').appendChild(par);
     }
 });
 
@@ -51,18 +50,19 @@ for (let i = 0; i < document.querySelectorAll('.pageN').length; i++) {
         let pageT = document.querySelectorAll('.pageN')[i].innerText; 
         let item = await searchPic(pageT);
         item = item.results;
-        
-        let output = `<h2>Searh Results</h2>`;
         item.forEach(photo => {
           let image = photo.urls.thumb;
           let description = photo.alt_description;
+          let divTag = document.createElement('div');
+          divTag.setAttribute('class', 'imgStyle');  
+          let imgTag = document.createElement('img');
+          Object.assign(imgTag, {
+              src: image,
+              alt: description,
+            });
+            divTag.appendChild(imgTag);
             
-           output += `
-           <div class = "imgStyle">
-            <img src ="${image}" alt = "${description}"/>
-           </div>
-           `;
-            document.querySelector('#output').innerHTML = output;
+          document.querySelector('#output').appendChild(divTag);
         });
     });
 }
